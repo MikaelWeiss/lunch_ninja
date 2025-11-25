@@ -60,6 +60,19 @@ config :logger, :default_formatter,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Configure Oban
+config :lunch_ninja, Oban,
+  engine: Oban.Engines.Basic,
+  queues: [default: 10],
+  repo: LunchNinja.Repo,
+  plugins: [
+    {Oban.Plugins.Cron,
+     crontab: [
+       # Run daily matching at midnight (00:00)
+       {"0 0 * * *", LunchNinja.Workers.DailyMatchWorker}
+     ]}
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

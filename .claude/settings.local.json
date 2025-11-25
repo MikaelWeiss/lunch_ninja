@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mix ecto.gen.migration:*)",
+      "Bash(mix test:*)",
+      "Bash(mix compile:*)",
+      "Bash(mix ecto.migrate:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -17,7 +17,34 @@ defmodule LunchNinjaWeb.Router do
   scope "/", LunchNinjaWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", LandingLive, :index
+    get "/auth/login", AuthController, :login_form
+    post "/auth/send-magic-link", AuthController, :send_magic_link
+    get "/auth/verify/:token", AuthController, :verify
+    post "/auth/logout", AuthController, :logout
+  end
+
+  # Authenticated routes (LiveView)
+  scope "/", LunchNinjaWeb do
+    pipe_through :browser
+
+    live_session :authenticated,
+      on_mount: [{LunchNinjaWeb.UserAuth, :require_authenticated_user}] do
+      live "/home", HomeLive, :index
+    end
+  end
+
+  # Admin routes (LiveView)
+  scope "/admin", LunchNinjaWeb.Admin do
+    pipe_through :browser
+
+    live_session :admin,
+      on_mount: [{LunchNinjaWeb.UserAuth, :require_admin}] do
+      live "/", DashboardLive, :index
+      live "/users", UserLive.Index, :index
+      live "/time-slots", TimeSlotLive.Index, :index
+      live "/matches", MatchLive.Index, :index
+    end
   end
 
   # Other scopes may use custom stacks.

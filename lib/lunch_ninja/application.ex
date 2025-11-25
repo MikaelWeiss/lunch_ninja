@@ -12,8 +12,8 @@ defmodule LunchNinja.Application do
       LunchNinja.Repo,
       {DNSCluster, query: Application.get_env(:lunch_ninja, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: LunchNinja.PubSub},
-      # Start a worker by calling: LunchNinja.Worker.start_link(arg)
-      # {LunchNinja.Worker, arg},
+      # Start Oban
+      {Oban, Application.fetch_env!(:lunch_ninja, Oban)},
       # Start to serve requests, typically the last entry
       LunchNinjaWeb.Endpoint
     ]
