@@ -116,6 +116,29 @@ defmodule LunchNinjaWeb.Layouts do
   end
 
   @doc """
+  Renders the design system layout without header, footer, or padding.
+
+  ## Examples
+
+      <Layouts.design flash={@flash}>
+        <h1>Content</h1>
+      </Layouts.design>
+
+  """
+  attr :flash, :map, required: true, doc: "the map of flash messages"
+  slot :inner_block, required: true
+
+  def design(assigns) do
+    ~H"""
+    <main class="min-h-screen">
+      {render_slot(@inner_block)}
+    </main>
+
+    <.flash_group flash={@flash} />
+    """
+  end
+
+  @doc """
   Provides dark vs light theme toggle based on themes defined in app.css.
 
   See <head> in root.html.heex which applies the theme before page load.

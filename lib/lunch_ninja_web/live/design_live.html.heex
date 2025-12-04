@@ -1,5 +1,53 @@
-<Layouts.app flash={@flash}>
-  <div class="space-y-12">
+<Layouts.design flash={@flash}>
+  <div class="flex min-h-screen">
+    <%!-- Sidebar --%>
+    <aside class={[
+      "bg-base-200 border-r border-base-300 transition-all duration-300",
+      @sidebar_collapsed && "w-16",
+      !@sidebar_collapsed && "w-64"
+    ]}>
+      <div class="sticky top-0 h-screen flex flex-col">
+        <%!-- Sidebar Header --%>
+        <div class="p-4 border-b border-base-300 flex items-center justify-between">
+          <h2 class={["font-semibold", @sidebar_collapsed && "hidden"]}>
+            Design System
+          </h2>
+          <button
+            phx-click="toggle_sidebar"
+            class="btn btn-sm btn-ghost"
+            aria-label="Toggle sidebar"
+          >
+            <.icon
+              name={@sidebar_collapsed && "hero-chevron-right" || "hero-chevron-left"}
+              class="size-5"
+            />
+          </button>
+        </div>
+
+        <%!-- Sidebar Navigation --%>
+        <nav class="flex-1 overflow-y-auto p-2">
+          <button
+            phx-click="select_section"
+            phx-value-section="baseline"
+            class={[
+              "w-full text-left px-4 py-2 rounded transition-colors",
+              @selected_section == "baseline" && "bg-primary text-primary-content",
+              @selected_section != "baseline" && "hover:bg-base-300"
+            ]}
+          >
+            <div class="flex items-center gap-3">
+              <.icon name="hero-swatch" class="size-5" />
+              <span class={[@sidebar_collapsed && "hidden"]}>Baseline</span>
+            </div>
+          </button>
+        </nav>
+      </div>
+    </aside>
+
+    <%!-- Main Content --%>
+    <main class="flex-1 p-8 overflow-y-auto">
+      <%= if @selected_section == "baseline" do %>
+        <div class="space-y-12">
     <%!-- 1. Typography Section --%>
     <section id="typography">
       <.header>
@@ -453,5 +501,8 @@
         </div>
       </div>
     </section>
+        </div>
+      <% end %>
+    </main>
   </div>
-</Layouts.app>
+</Layouts.design>

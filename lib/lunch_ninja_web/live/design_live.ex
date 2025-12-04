@@ -22,7 +22,21 @@ defmodule LunchNinjaWeb.DesignLive do
         "disabled" => "Disabled"
       })
 
-    {:ok, assign(socket, form: form)}
+    {:ok,
+     assign(socket,
+       form: form,
+       selected_section: "baseline",
+       sidebar_collapsed: false
+     )}
+  end
+
+  @impl true
+  def handle_event("select_section", %{"section" => section}, socket) do
+    {:noreply, assign(socket, selected_section: section)}
+  end
+
+  def handle_event("toggle_sidebar", _params, socket) do
+    {:noreply, assign(socket, sidebar_collapsed: !socket.assigns.sidebar_collapsed)}
   end
 
   def sample_users do
