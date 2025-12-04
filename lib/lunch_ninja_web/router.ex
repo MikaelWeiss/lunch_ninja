@@ -18,6 +18,7 @@ defmodule LunchNinjaWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/design", DesignLive
   end
 
   # Other scopes may use custom stacks.
