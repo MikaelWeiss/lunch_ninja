@@ -1,5 +1,696 @@
+<style>
+  /* === BASELINE THEME (Light Mode Default) === */
+  /* Clean, professional design with neutral colors */
+
+  :root {
+    /* Neutral base colors for light mode */
+    --color-base-100: oklch(100% 0 0);      /* Pure white background */
+    --color-base-200: oklch(96% 0 0);       /* Light gray */
+    --color-base-300: oklch(87% 0 0);       /* Medium gray */
+    --color-base-content: oklch(20% 0 0);   /* Dark text */
+
+    /* Accent colors */
+    --color-primary: oklch(55% 0.18 250);
+    --color-primary-content: oklch(100% 0 0);
+
+    --color-secondary: oklch(60% 0.15 280);
+    --color-secondary-content: oklch(100% 0 0);
+
+    --color-accent: oklch(65% 0.16 200);
+    --color-accent-content: oklch(100% 0 0);
+
+    --color-success: oklch(65% 0.17 145);
+    --color-success-content: oklch(100% 0 0);
+
+    --color-warning: oklch(75% 0.15 65);
+    --color-warning-content: oklch(20% 0 0);
+
+    --color-error: oklch(58% 0.20 25);
+    --color-error-content: oklch(100% 0 0);
+
+    --color-info: oklch(62% 0.19 235);
+    --color-info-content: oklch(100% 0 0);
+  }
+
+  /* Chromatic theme - Vibrant polychromatic design with bold colors */
+  .chromatic {
+    /* === VIBRANT SPECTRUM COLORS (High Saturation) === */
+    /* Using OKLCH for perceptually uniform, vibrant colors */
+
+    /* Coral/Red - Primary accent color */
+    --color-error: oklch(68% 0.22 15);
+    --color-error-content: oklch(100% 0 0);
+
+    /* Orange - 45° */
+    --color-warning: oklch(75% 0.20 55);
+    --color-warning-content: oklch(15% 0 0);
+
+    /* Yellow - 90° */
+    --color-yellow: oklch(85% 0.18 95);
+    --color-yellow-content: oklch(15% 0 0);
+
+    /* Teal/Green - Key accent */
+    --color-success: oklch(72% 0.18 165);
+    --color-success-content: oklch(15% 0 0);
+
+    /* Cyan/Teal - Primary chart color */
+    --color-accent: oklch(75% 0.15 200);
+    --color-accent-content: oklch(100% 0 0);
+
+    /* Blue - 250° */
+    --color-primary: oklch(60% 0.20 240);
+    --color-primary-content: oklch(100% 0 0);
+
+    /* Purple - 290° */
+    --color-secondary: oklch(65% 0.20 300);
+    --color-secondary-content: oklch(100% 0 0);
+
+    /* Magenta/Pink - 340° */
+    --color-info: oklch(70% 0.22 340);
+    --color-info-content: oklch(100% 0 0);
+
+    /* Gradient backgrounds */
+    --gradient-rainbow: linear-gradient(135deg,
+      oklch(68% 0.22 15) 0%,     /* Coral */
+      oklch(70% 0.22 340) 25%,   /* Magenta */
+      oklch(85% 0.18 95) 50%,    /* Yellow */
+      oklch(75% 0.15 200) 75%,   /* Cyan */
+      oklch(60% 0.20 240) 100%   /* Blue */
+    );
+
+    --gradient-cool: linear-gradient(135deg,
+      oklch(75% 0.15 200) 0%,    /* Cyan */
+      oklch(60% 0.20 240) 50%,   /* Blue */
+      oklch(65% 0.20 300) 100%   /* Purple */
+    );
+
+    --gradient-warm: linear-gradient(135deg,
+      oklch(85% 0.18 95) 0%,     /* Yellow */
+      oklch(75% 0.20 55) 50%,    /* Orange */
+      oklch(68% 0.22 15) 100%    /* Coral */
+    );
+
+    /* Light backgrounds - very clean white */
+    --color-base-100: oklch(100% 0 0);
+    --color-base-200: oklch(98% 0 0);
+    --color-base-300: oklch(92% 0 0);
+    --color-base-content: oklch(25% 0 0);
+
+    /* Rounded, playful design */
+    --radius-selector: 1rem;
+    --radius-field: 0.75rem;
+    --radius-box: 1.25rem;
+    --border: 2px;
+  }
+
+  /* === BASELINE AESTHETICS === */
+
+  /* Clean, minimal navbar for baseline theme */
+  .navbar {
+    background-color: var(--color-base-100);
+    border-bottom: 1px solid var(--color-base-300);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .card {
+    background-color: var(--color-base-100);
+    border: 1px solid var(--color-base-300);
+    border-radius: 0.5rem;
+  }
+
+  table thead {
+    background-color: var(--color-base-200);
+  }
+
+  table tr {
+    border-bottom: 1px solid var(--color-base-300);
+  }
+
+  table tr:hover {
+    background-color: var(--color-base-200);
+  }
+
+  input,
+  select,
+  textarea {
+    background-color: var(--color-base-100);
+    border: 1px solid var(--color-base-300);
+    color: var(--color-base-content);
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px oklch(55% 0.18 250 / 0.1);
+  }
+
+  /* Baseline page background */
+  body,
+  .min-h-screen {
+    background-color: var(--color-base-100);
+    color: var(--color-base-content);
+  }
+
+  /* Baseline sidebar */
+  aside {
+    background-color: var(--color-base-200);
+    border-right: 1px solid var(--color-base-300);
+  }
+
+  aside .border-b {
+    border-bottom-color: var(--color-base-300);
+  }
+
+  aside button:hover {
+    background-color: var(--color-base-300);
+  }
+
+  /* === CHROMATIC AESTHETICS === */
+
+  /* Golden sidebar border for chromatic theme */
+  .chromatic aside {
+    border-right: 3px solid;
+    border-image: linear-gradient(180deg,
+      oklch(75% 0.15 70) 0%,     /* Golden */
+      oklch(70% 0.18 65) 50%,    /* Bronze */
+      oklch(75% 0.15 70) 100%    /* Golden */
+    ) 1;
+  }
+
+  /* Subtle gradient navbar for light mode */
+  .chromatic .navbar {
+    background: linear-gradient(90deg,
+      oklch(68% 0.22 15) 0%,     /* Coral */
+      oklch(70% 0.22 340) 20%,   /* Magenta */
+      oklch(85% 0.18 95) 40%,    /* Yellow */
+      oklch(75% 0.15 200) 60%,   /* Cyan */
+      oklch(72% 0.18 165) 80%,   /* Teal */
+      oklch(60% 0.20 240) 100%   /* Blue */
+    );
+    background-size: 200% 100%;
+    animation: rainbow-shift 20s ease infinite;
+    color: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes rainbow-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .chromatic .navbar a,
+  .chromatic .navbar span {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  .chromatic .navbar .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+  }
+
+  .chromatic .navbar .btn-primary {
+    background: white;
+    color: oklch(60% 0.20 240);
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .chromatic .navbar .btn-primary:hover {
+    background: oklch(100% 0 0);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Vibrant gradient cards with top borders */
+  .chromatic .card {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-base-100);
+    border: 1px solid oklch(92% 0 0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+
+  .chromatic .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .chromatic .card:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+      oklch(75% 0.15 200),   /* Cyan */
+      oklch(60% 0.20 240)    /* Blue */
+    );
+  }
+
+  .chromatic .card:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+      oklch(68% 0.22 15),    /* Coral */
+      oklch(70% 0.22 340)    /* Magenta */
+    );
+  }
+
+  .chromatic .card:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg,
+      oklch(72% 0.18 165),   /* Teal */
+      oklch(85% 0.18 95)     /* Yellow */
+    );
+  }
+
+  /* Vibrant icons with subtle glow */
+  .chromatic .card:nth-child(1) .text-primary {
+    color: oklch(75% 0.15 200) !important;
+    filter: drop-shadow(0 1px 2px oklch(75% 0.15 200 / 0.2));
+  }
+
+  .chromatic .card:nth-child(2) .text-primary {
+    color: oklch(68% 0.22 15) !important;
+    filter: drop-shadow(0 1px 2px oklch(68% 0.22 15 / 0.2));
+  }
+
+  .chromatic .card:nth-child(3) .text-primary {
+    color: oklch(72% 0.18 165) !important;
+    filter: drop-shadow(0 1px 2px oklch(72% 0.18 165 / 0.2));
+  }
+
+  /* Vibrant buttons with gradients */
+  .chromatic .btn {
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border: none;
+  }
+
+  .chromatic .btn-primary {
+    background: linear-gradient(135deg,
+      oklch(75% 0.15 200),   /* Cyan */
+      oklch(60% 0.20 240)    /* Blue */
+    );
+    color: white;
+    box-shadow: 0 2px 8px oklch(75% 0.15 200 / 0.25);
+  }
+
+  .chromatic .btn-primary:hover {
+    background: linear-gradient(135deg,
+      oklch(72% 0.18 200),
+      oklch(57% 0.22 240)
+    );
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px oklch(75% 0.15 200 / 0.3);
+  }
+
+  .chromatic .btn-ghost {
+    color: oklch(60% 0.20 240);
+    font-weight: 600;
+  }
+
+  .chromatic .btn-ghost:hover {
+    background: oklch(96% 0 0);
+  }
+
+  /* High-saturation badges */
+  .chromatic .badge {
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem 1rem;
+  }
+
+  .chromatic .badge-primary {
+    background: linear-gradient(135deg,
+      oklch(75% 0.15 200),   /* Cyan */
+      oklch(60% 0.20 240)    /* Blue */
+    );
+    color: white;
+  }
+
+  .chromatic .badge-success {
+    background: linear-gradient(135deg,
+      oklch(72% 0.18 165),   /* Teal */
+      oklch(85% 0.18 95)     /* Yellow */
+    );
+    color: oklch(15% 0 0);
+  }
+
+  .chromatic .badge-warning {
+    background: linear-gradient(135deg,
+      oklch(85% 0.18 95),    /* Yellow */
+      oklch(75% 0.20 55)     /* Orange */
+    );
+    color: oklch(15% 0 0);
+  }
+
+  .chromatic .badge-error {
+    background: linear-gradient(135deg,
+      oklch(68% 0.22 15),    /* Coral */
+      oklch(70% 0.22 340)    /* Magenta */
+    );
+    color: white;
+  }
+
+  .chromatic .badge-info {
+    background: linear-gradient(135deg,
+      oklch(70% 0.22 340),   /* Magenta */
+      oklch(65% 0.20 300)    /* Purple */
+    );
+    color: white;
+  }
+
+  .chromatic .badge-ghost {
+    background: oklch(95% 0 0);
+    color: oklch(25% 0 0);
+    border: 2px solid oklch(85% 0 0);
+  }
+
+  /* Vibrant focus states with color ring */
+  .chromatic input:focus,
+  .chromatic select:focus,
+  .chromatic textarea:focus {
+    outline: none;
+    border-color: oklch(75% 0.15 200);
+    box-shadow: 0 0 0 3px oklch(75% 0.15 200 / 0.15),
+                0 2px 8px oklch(75% 0.15 200 / 0.1);
+    transition: all 0.2s ease;
+  }
+
+  /* Colorful table with gradient header */
+  .chromatic table thead {
+    background: oklch(98% 0 0);
+    font-weight: 700;
+  }
+
+  .chromatic table tr:hover {
+    background: oklch(96% 0 0);
+  }
+
+  /* Animated rainbow border on form */
+  .chromatic .card-body form {
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg,
+      oklch(68% 0.22 15) 0%,     /* Coral */
+      oklch(70% 0.22 340) 20%,   /* Magenta */
+      oklch(85% 0.18 95) 40%,    /* Yellow */
+      oklch(75% 0.15 200) 60%,   /* Cyan */
+      oklch(60% 0.20 240) 100%   /* Blue */
+    ) 1;
+    padding-top: 1rem;
+  }
+
+  /* Activity feed with colorful borders */
+  .chromatic .border-b {
+    border-bottom-color: oklch(92% 0 0);
+  }
+
+  /* Vibrant headings with gradient text */
+  .chromatic h1,
+  .chromatic h2,
+  .chromatic h3 {
+    font-weight: 800;
+    background: linear-gradient(135deg,
+      oklch(30% 0.12 240),   /* Deep blue */
+      oklch(35% 0.12 200)    /* Deep cyan */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .chromatic .card-title {
+    font-weight: 800;
+    color: oklch(25% 0 0);
+  }
+
+  /* Colorful scrollbar */
+  .chromatic ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .chromatic ::-webkit-scrollbar-track {
+    background: oklch(98% 0 0);
+  }
+
+  .chromatic ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg,
+      oklch(75% 0.15 200),   /* Cyan */
+      oklch(60% 0.20 240)    /* Blue */
+    );
+    border-radius: 6px;
+  }
+
+  .chromatic ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+      oklch(72% 0.18 200),
+      oklch(57% 0.22 240)
+    );
+  }
+
+  /* Page background - clean white */
+  .chromatic {
+    background: oklch(100% 0 0);
+    min-height: 100vh;
+    color: oklch(25% 0 0);
+  }
+
+  /* Ensure proper text colors in chromatic light mode */
+  .chromatic .card-body,
+  .chromatic p,
+  .chromatic dd,
+  .chromatic dt,
+  .chromatic table {
+    color: oklch(25% 0 0);
+  }
+
+  .chromatic .opacity-70 {
+    opacity: 0.7;
+  }
+
+  .chromatic .opacity-60 {
+    opacity: 0.6;
+  }
+
+  /* Sidebar selected button with vibrant gradient */
+  .chromatic aside button.bg-primary {
+    background: linear-gradient(135deg,
+      oklch(68% 0.22 15) 0%,     /* Coral */
+      oklch(70% 0.22 340) 25%,   /* Magenta */
+      oklch(85% 0.18 95) 50%,    /* Yellow */
+      oklch(75% 0.15 200) 75%,   /* Cyan */
+      oklch(60% 0.20 240) 100%   /* Blue */
+    );
+    color: white !important;
+    border: none;
+  }
+
+  .chromatic aside button.bg-primary:hover {
+    background: linear-gradient(135deg,
+      oklch(65% 0.24 15) 0%,
+      oklch(67% 0.24 340) 25%,
+      oklch(82% 0.20 95) 50%,
+      oklch(72% 0.18 200) 75%,
+      oklch(57% 0.22 240) 100%
+    );
+  }
+
+  /* === DARK MODE STYLES === */
+
+  /* Dark mode for baseline theme */
+  .dark {
+    --color-base-100: oklch(18% 0 0);       /* Dark background */
+    --color-base-200: oklch(15% 0 0);       /* Darker background */
+    --color-base-300: oklch(25% 0 0);       /* Lighter dark */
+    --color-base-content: oklch(92% 0 0);   /* Light text */
+
+    /* Adjust accent colors for dark mode */
+    --color-primary: oklch(65% 0.20 250);
+    --color-secondary: oklch(70% 0.18 280);
+    --color-accent: oklch(72% 0.18 200);
+    --color-success: oklch(70% 0.19 145);
+    --color-warning: oklch(78% 0.17 65);
+    --color-error: oklch(65% 0.22 25);
+    --color-info: oklch(68% 0.21 235);
+
+    background-color: oklch(18% 0 0);
+    color: oklch(92% 0 0);
+  }
+
+  .dark .navbar {
+    background-color: oklch(15% 0 0);
+    border-bottom: 1px solid oklch(30% 0 0);
+  }
+
+  .dark .card {
+    background-color: oklch(20% 0 0);
+    border-color: oklch(30% 0 0);
+  }
+
+  .dark table thead {
+    background-color: oklch(15% 0 0);
+  }
+
+  .dark table tr:hover {
+    background-color: oklch(22% 0 0);
+  }
+
+  .dark input,
+  .dark select,
+  .dark textarea {
+    background-color: oklch(22% 0 0);
+    border-color: oklch(35% 0 0);
+    color: oklch(92% 0 0);
+  }
+
+  .dark input::placeholder,
+  .dark select::placeholder,
+  .dark textarea::placeholder {
+    color: oklch(60% 0 0);
+  }
+
+  /* Dark mode for chromatic theme - Deep navy blue */
+  .chromatic.dark {
+    background: oklch(18% 0.03 240);   /* Deep navy blue */
+    color: oklch(95% 0 0);
+  }
+
+  .chromatic.dark .card-body,
+  .chromatic.dark p,
+  .chromatic.dark dd,
+  .chromatic.dark dt,
+  .chromatic.dark table {
+    color: oklch(95% 0 0);
+  }
+
+  .chromatic.dark .navbar {
+    background: linear-gradient(90deg,
+      oklch(68% 0.22 15) 0%,     /* Coral */
+      oklch(70% 0.22 340) 20%,   /* Magenta */
+      oklch(85% 0.18 95) 40%,    /* Yellow */
+      oklch(75% 0.15 200) 60%,   /* Cyan */
+      oklch(72% 0.18 165) 80%,   /* Teal */
+      oklch(60% 0.20 240) 100%   /* Blue */
+    );
+    background-size: 200% 100%;
+    animation: rainbow-shift 20s ease infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .chromatic.dark .card {
+    background-color: oklch(22% 0.03 240);   /* Darker navy */
+    border-color: oklch(30% 0.05 240);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .chromatic.dark .card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .chromatic.dark table thead {
+    background: oklch(20% 0.03 240);
+  }
+
+  .chromatic.dark table tr:hover {
+    background: oklch(24% 0.03 240);
+  }
+
+  .chromatic.dark input,
+  .chromatic.dark select,
+  .chromatic.dark textarea {
+    background-color: oklch(24% 0.03 240);
+    border-color: oklch(35% 0.05 240);
+    color: oklch(95% 0 0);
+  }
+
+  .chromatic.dark input::placeholder,
+  .chromatic.dark select::placeholder,
+  .chromatic.dark textarea::placeholder {
+    color: oklch(60% 0.02 240);
+  }
+
+  .chromatic.dark h1,
+  .chromatic.dark h2,
+  .chromatic.dark h3 {
+    background: linear-gradient(135deg,
+      oklch(75% 0.15 200),   /* Cyan */
+      oklch(85% 0.18 95)     /* Yellow */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .chromatic.dark .card-title {
+    color: oklch(92% 0 0);
+  }
+
+  .chromatic.dark .border-b {
+    border-bottom-color: oklch(30% 0.05 240);
+  }
+
+  .chromatic.dark ::-webkit-scrollbar-track {
+    background: oklch(18% 0.03 240);
+  }
+
+  .dark .border-b {
+    border-bottom-color: oklch(30% 0 0);
+  }
+
+  /* Dark mode sidebar */
+  .dark aside {
+    background-color: oklch(15% 0 0);
+    border-right-color: oklch(30% 0 0);
+  }
+
+  .dark aside .border-b {
+    border-bottom-color: oklch(30% 0 0);
+  }
+
+  .dark aside button:hover {
+    background-color: oklch(25% 0 0);
+  }
+
+  /* Dark mode chromatic sidebar */
+  .chromatic.dark aside {
+    background-color: oklch(16% 0.03 240);
+    border-right: 3px solid;
+    border-image: linear-gradient(180deg,
+      oklch(70% 0.18 70) 0%,     /* Golden */
+      oklch(65% 0.20 65) 50%,    /* Bronze */
+      oklch(70% 0.18 70) 100%    /* Golden */
+    ) 1;
+  }
+
+  .chromatic.dark aside .border-b {
+    border-bottom-color: oklch(30% 0.05 240);
+  }
+
+  .chromatic.dark aside button:hover {
+    background-color: oklch(24% 0.03 240);
+  }
+</style>
+
 <Layouts.design flash={@flash}>
-  <div class="flex min-h-screen">
+  <div class={[
+    "flex min-h-screen",
+    @dark_mode && "dark"
+  ]}>
     <%!-- Sidebar --%>
     <aside class={[
       "bg-base-200 border-r border-base-300 transition-all duration-300",
@@ -40,469 +731,177 @@
               <span class={[@sidebar_collapsed && "hidden"]}>Baseline</span>
             </div>
           </button>
+
+          <button
+            phx-click="select_section"
+            phx-value-section="chromatic"
+            class={[
+              "w-full text-left px-4 py-2 rounded transition-colors",
+              @selected_section == "chromatic" && "bg-primary text-primary-content",
+              @selected_section != "chromatic" && "hover:bg-base-300"
+            ]}
+          >
+            <div class="flex items-center gap-3">
+              <.icon name="hero-sparkles" class="size-5" />
+              <span class={[@sidebar_collapsed && "hidden"]}>Chromatic</span>
+            </div>
+          </button>
         </nav>
       </div>
     </aside>
 
     <%!-- Main Content --%>
-    <main class="flex-1 p-8 overflow-y-auto">
-      <%= if @selected_section == "baseline" do %>
-        <div class="space-y-12">
-    <%!-- 1. Typography Section --%>
-    <section id="typography">
-      <.header>
-        Typography
-        <:subtitle>Text styles and headings</:subtitle>
-      </.header>
-      <div class="space-y-6 mt-6">
-        <div class="space-y-4">
-          <h1 class="text-4xl font-bold">Heading 1 (text-4xl font-bold)</h1>
-          <h2 class="text-3xl font-semibold">Heading 2 (text-3xl font-semibold)</h2>
-          <h3 class="text-2xl font-semibold">Heading 3 (text-2xl font-semibold)</h3>
-          <h4 class="text-xl font-semibold">Heading 4 (text-xl font-semibold)</h4>
-          <h5 class="text-lg font-semibold">Heading 5 (text-lg font-semibold)</h5>
-          <h6 class="text-base font-semibold">Heading 6 (text-base font-semibold)</h6>
-        </div>
-        <div class="space-y-2">
-          <p class="text-base">Regular paragraph text (text-base)</p>
-          <p class="text-sm">Small text (text-sm)</p>
-          <p class="text-xs">Extra small text (text-xs)</p>
-          <p class="text-lg">Large text (text-lg)</p>
-          <p class="text-xl">Extra large text (text-xl)</p>
-        </div>
-        <div class="space-y-2">
-          <p><strong>Bold text (strong)</strong></p>
-          <p><em>Italic text (em)</em></p>
-          <p><code class="px-1 py-0.5 bg-base-200 rounded">Code snippet (code)</code></p>
-          <p class="underline">Underlined text</p>
-          <p class="line-through">Strikethrough text</p>
-        </div>
-      </div>
-    </section>
+    <main class="flex-1 overflow-y-auto">
+      <%!-- Theme Preview Wrapper - conditionally apply chromatic and dark classes --%>
+      <div class={[
+        "min-h-screen",
+        @selected_section == "chromatic" && "chromatic",
+        @dark_mode && "dark"
+      ]}>
+        <%!-- Navbar (from Layouts.app pattern) --%>
+        <header class="navbar px-4 sm:px-6 lg:px-8">
+          <div class="flex-1">
+            <a href="/" class="flex-1 flex w-fit items-center gap-2">
+              <img src={~p"/images/logo.svg"} width="36" />
+              <span class="text-sm font-semibold">LunchNinja Dashboard</span>
+            </a>
+          </div>
+          <div class="flex-none">
+            <ul class="flex flex-column px-1 space-x-4 items-center">
+              <li><a href="#" class="btn btn-ghost">Tasks</a></li>
+              <li><a href="#" class="btn btn-ghost">Team</a></li>
+              <li>
+                <button
+                  phx-click="toggle_dark_mode"
+                  class="btn btn-ghost"
+                  aria-label="Toggle dark mode"
+                >
+                  <.icon name={@dark_mode && "hero-sun" || "hero-moon"} class="size-5" />
+                </button>
+              </li>
+              <li><a href="#" class="btn btn-primary">New Task</a></li>
+            </ul>
+          </div>
+        </header>
 
-    <%!-- 2. Colors & Palette --%>
-    <section id="colors">
-      <.header>
-        Color Palette
-        <:subtitle>Theme colors and variants</:subtitle>
-      </.header>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
-        <%= for {name, class} <- color_samples() do %>
-          <div class="space-y-2">
-            <div class={"h-20 rounded border border-base-300 " <> class}></div>
-            <p class="text-xs font-semibold text-center">{name}</p>
-          </div>
-        <% end %>
-      </div>
-    </section>
-
-    <%!-- 3. Buttons --%>
-    <section id="buttons">
-      <.header>
-        Buttons
-        <:subtitle>Button variants and states</:subtitle>
-      </.header>
-      <div class="space-y-6 mt-6">
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Primary Buttons</h3>
-          <div class="flex gap-2 flex-wrap">
-            <.button>Default</.button>
-            <.button class="btn-lg">Large</.button>
-            <.button class="btn-sm">Small</.button>
-            <.button class="btn-xs">Extra Small</.button>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Button Variants</h3>
-          <div class="flex gap-2 flex-wrap">
-            <button class="btn">Default</button>
-            <button class="btn btn-primary">Primary</button>
-            <button class="btn btn-secondary">Secondary</button>
-            <button class="btn btn-accent">Accent</button>
-            <button class="btn btn-success">Success</button>
-            <button class="btn btn-warning">Warning</button>
-            <button class="btn btn-error">Error</button>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Button Styles</h3>
-          <div class="flex gap-2 flex-wrap">
-            <button class="btn btn-outline">Outline</button>
-            <button class="btn btn-outline btn-primary">Primary Outline</button>
-            <button class="btn btn-ghost">Ghost</button>
-            <button class="btn btn-link">Link</button>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Button States</h3>
-          <div class="flex gap-2 flex-wrap">
-            <button class="btn btn-primary">Normal</button>
-            <button class="btn btn-primary btn-active">Active</button>
-            <button class="btn btn-primary" disabled>Disabled</button>
-            <button class="btn btn-primary loading">Loading</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <%!-- 4. Form Inputs --%>
-    <section id="forms">
-      <.header>
-        Form Inputs
-        <:subtitle>Input types and states</:subtitle>
-      </.header>
-      <div class="space-y-4 mt-6 max-w-2xl">
-        <.form for={@form} id="design-form">
-          <.input field={@form[:text]} type="text" label="Text Input" placeholder="Enter text..." />
-          <.input
-            field={@form[:email]}
-            type="email"
-            label="Email Input"
-            placeholder="email@example.com"
-          />
-          <.input
-            field={@form[:password]}
-            type="password"
-            label="Password Input"
-            placeholder="Enter password..."
-          />
-          <.input
-            field={@form[:number]}
-            type="number"
-            label="Number Input"
-            placeholder="Enter number..."
-          />
-          <.input
-            field={@form[:search]}
-            type="search"
-            label="Search Input"
-            placeholder="Search..."
-          />
-          <.input
-            field={@form[:url]}
-            type="url"
-            label="URL Input"
-            placeholder="https://example.com"
-          />
-          <.input
-            field={@form[:tel]}
-            type="tel"
-            label="Phone Input"
-            placeholder="(555) 123-4567"
-          />
-          <.input field={@form[:date]} type="date" label="Date Input" />
-          <.input field={@form[:time]} type="time" label="Time Input" />
-          <.input
-            field={@form[:textarea]}
-            type="textarea"
-            label="Textarea"
-            placeholder="Enter multiple lines..."
-            rows="4"
-          />
-          <.input
-            field={@form[:select]}
-            type="select"
-            label="Select Input"
-            prompt="Choose an option..."
-            options={[{"Option 1", "opt1"}, {"Option 2", "opt2"}, {"Option 3", "opt3"}]}
-          />
-          <.input field={@form[:checkbox1]} type="checkbox" label="Checkbox Input" />
-          <.input field={@form[:checkbox2]} type="checkbox" label="Checked Checkbox" />
-          <div>
-            <h3 class="text-sm font-semibold mb-3">Input States</h3>
-            <div class="space-y-4">
-              <.input
-                field={@form[:error]}
-                type="text"
-                label="Error Input"
-                errors={["This field is required", "Must be a valid email"]}
-              />
-              <.input field={@form[:disabled]} type="text" label="Disabled Input" disabled />
-            </div>
-          </div>
-        </.form>
-      </div>
-    </section>
-
-    <%!-- 5. Tables --%>
-    <section id="tables">
-      <.header>
-        Tables
-        <:subtitle>Data table component</:subtitle>
-      </.header>
-      <div class="mt-6">
-        <.table id="sample-table" rows={sample_users()}>
-          <:col :let={user} label="ID">{user["id"]}</:col>
-          <:col :let={user} label="Name">{user["name"]}</:col>
-          <:col :let={user} label="Email">{user["email"]}</:col>
-          <:col :let={user} label="Role">{user["role"]}</:col>
-          <:action :let={_user}>
-            <button class="text-primary hover:underline">Edit</button>
-          </:action>
-          <:action :let={_user}>
-            <button class="text-error hover:underline">Delete</button>
-          </:action>
-        </.table>
-      </div>
-    </section>
-
-    <%!-- 6. Lists --%>
-    <section id="lists">
-      <.header>
-        Lists
-        <:subtitle>Data list component</:subtitle>
-      </.header>
-      <div class="mt-6 max-w-2xl">
-        <.list>
-          <:item title="Item Title 1">This is the description for the first item</:item>
-          <:item title="Item Title 2">This is the description for the second item</:item>
-          <:item title="Item Title 3">This is the description for the third item</:item>
-        </.list>
-      </div>
-    </section>
-
-    <%!-- 7. Flash Messages --%>
-    <section id="flash">
-      <.header>
-        Flash Messages
-        <:subtitle>Notification styles</:subtitle>
-      </.header>
-      <div class="space-y-4 mt-6 max-w-2xl">
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Info Flash</h3>
-          <.flash kind={:info} title="Info!">
-            This is an informational message
-          </.flash>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Error Flash</h3>
-          <.flash kind={:error} title="Error!">
-            This is an error message
-          </.flash>
-        </div>
-      </div>
-    </section>
-
-    <%!-- 8. Icons --%>
-    <section id="icons">
-      <.header>
-        Icons (Heroicons)
-        <:subtitle>Available icon set</:subtitle>
-      </.header>
-      <div class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-10 gap-4 mt-6">
-        <%= for icon_name <- sample_icons() do %>
-          <div class="flex flex-col items-center gap-2 p-2 hover:bg-base-200 rounded">
-            <.icon name={icon_name} class="size-6" />
-            <span class="text-xs text-center break-words w-full">
-              {String.replace(icon_name, "hero-", "")}
-            </span>
-          </div>
-        <% end %>
-      </div>
-    </section>
-
-    <%!-- 9. Spacing & Layout --%>
-    <section id="spacing">
-      <.header>
-        Spacing & Layout
-        <:subtitle>Spacing utilities and examples</:subtitle>
-      </.header>
-      <div class="space-y-8 mt-6">
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Gap Spacing</h3>
-          <div class="space-y-4">
-            <div class="flex gap-1 items-center">
-              <span class="text-xs mr-2">gap-1:</span>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-            </div>
-            <div class="flex gap-2 items-center">
-              <span class="text-xs mr-2">gap-2:</span>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-            </div>
-            <div class="flex gap-4 items-center">
-              <span class="text-xs mr-2">gap-4:</span>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-            </div>
-            <div class="flex gap-6 items-center">
-              <span class="text-xs mr-2">gap-6:</span>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-            </div>
-            <div class="flex gap-8 items-center">
-              <span class="text-xs mr-2">gap-8:</span>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-              <div class="w-8 h-8 bg-primary/30 rounded"></div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Padding Examples</h3>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="p-2 bg-primary/20 rounded text-center text-sm">p-2</div>
-            <div class="p-4 bg-primary/20 rounded text-center text-sm">p-4</div>
-            <div class="px-4 py-2 bg-primary/20 rounded text-center text-sm">px-4 py-2</div>
-            <div class="px-6 py-3 bg-primary/20 rounded text-center text-sm">px-6 py-3</div>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Border Radius</h3>
-          <div class="flex gap-4 items-center flex-wrap">
-            <div class="text-center">
-              <div class="w-16 h-16 bg-primary rounded-none border-2 border-base-300 mb-1"></div>
-              <span class="text-xs">rounded-none</span>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-primary rounded-sm border-2 border-base-300 mb-1"></div>
-              <span class="text-xs">rounded-sm</span>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-primary rounded border-2 border-base-300 mb-1"></div>
-              <span class="text-xs">rounded</span>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-primary rounded-md border-2 border-base-300 mb-1"></div>
-              <span class="text-xs">rounded-md</span>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-primary rounded-lg border-2 border-base-300 mb-1"></div>
-              <span class="text-xs">rounded-lg</span>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-primary rounded-xl border-2 border-base-300 mb-1"></div>
-              <span class="text-xs">rounded-xl</span>
-            </div>
-            <div class="text-center">
-              <div class="w-16 h-16 bg-primary rounded-full border-2 border-base-300 mb-1"></div>
-              <span class="text-xs">rounded-full</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <%!-- 10. daisyUI Components --%>
-    <section id="daisyui">
-      <.header>
-        daisyUI Components
-        <:subtitle>Additional UI components from daisyUI</:subtitle>
-      </.header>
-      <div class="space-y-8 mt-6">
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Badges</h3>
-          <div class="flex gap-2 flex-wrap">
-            <span class="badge">Default</span>
-            <span class="badge badge-primary">Primary</span>
-            <span class="badge badge-secondary">Secondary</span>
-            <span class="badge badge-accent">Accent</span>
-            <span class="badge badge-success">Success</span>
-            <span class="badge badge-warning">Warning</span>
-            <span class="badge badge-error">Error</span>
-            <span class="badge badge-info">Info</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Badge Sizes</h3>
-          <div class="flex gap-2 flex-wrap items-center">
-            <span class="badge badge-xs">Extra Small</span>
-            <span class="badge badge-sm">Small</span>
-            <span class="badge badge-md">Medium</span>
-            <span class="badge badge-lg">Large</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Alerts</h3>
-          <div class="space-y-3 max-w-2xl">
-            <div class="alert alert-info">
-              <.icon name="hero-information-circle" class="size-5" />
-              <span>Info alert message with helpful information</span>
-            </div>
-            <div class="alert alert-success">
-              <.icon name="hero-check-circle" class="size-5" />
-              <span>Success alert message indicating completion</span>
-            </div>
-            <div class="alert alert-warning">
-              <.icon name="hero-exclamation-triangle" class="size-5" />
-              <span>Warning alert message requiring attention</span>
-            </div>
-            <div class="alert alert-error">
-              <.icon name="hero-x-circle" class="size-5" />
-              <span>Error alert message indicating a problem</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Cards</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="card bg-base-100 shadow-md">
-              <div class="card-body">
-                <h3 class="card-title">Default Card</h3>
-                <p>This is a basic card with default styling and shadow.</p>
-                <div class="card-actions justify-end">
-                  <button class="btn btn-primary btn-sm">Action</button>
+        <%!-- Dashboard Content --%>
+        <div class="px-4 py-8 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+          <%!-- Stats Cards --%>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <%= for stat <- sample_stats() do %>
+              <div class="card bg-base-100 shadow-md">
+                <div class="card-body">
+                  <div class="flex items-center justify-between">
+                    <.icon name={stat.icon} class="size-8 text-primary" />
+                    <span class="badge badge-success"><%= stat.trend %></span>
+                  </div>
+                  <h3 class="text-3xl font-bold mt-2"><%= stat.value %></h3>
+                  <p class="text-sm opacity-70"><%= stat.label %></p>
                 </div>
               </div>
-            </div>
-            <div class="card bg-primary text-primary-content shadow-md">
-              <div class="card-body">
-                <h3 class="card-title">Primary Card</h3>
-                <p>This card uses the primary color scheme.</p>
-                <div class="card-actions justify-end">
-                  <button class="btn btn-sm">Action</button>
-                </div>
+            <% end %>
+          </div>
+
+          <%!-- Two-column layout --%>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <%!-- Tasks Table (2/3 width) --%>
+            <div class="lg:col-span-2">
+              <.header>
+                Recent Tasks
+                <:actions>
+                  <.button class="btn-sm">View All</.button>
+                </:actions>
+              </.header>
+
+              <div class="mt-4">
+                <.table id="tasks-table" rows={sample_tasks()}>
+                  <:col :let={task} label="Task"><%= task.title %></:col>
+                  <:col :let={task} label="Assignee"><%= task.assignee %></:col>
+                  <:col :let={task} label="Priority">
+                    <span class={[
+                      "badge",
+                      task.priority == "urgent" && "badge-error",
+                      task.priority == "high" && "badge-warning",
+                      task.priority == "medium" && "badge-info",
+                      task.priority == "low" && "badge-ghost"
+                    ]}>
+                      <%= task.priority %>
+                    </span>
+                  </:col>
+                  <:col :let={task} label="Status">
+                    <span class={[
+                      "badge",
+                      task.status == "completed" && "badge-success",
+                      task.status == "in-progress" && "badge-primary",
+                      task.status == "pending" && "badge-ghost"
+                    ]}>
+                      <%= task.status %>
+                    </span>
+                  </:col>
+                </.table>
               </div>
             </div>
-            <div class="card bg-base-100 shadow-md border border-base-300">
-              <div class="card-body">
-                <h3 class="card-title">Bordered Card</h3>
-                <p>This card has a border for additional definition.</p>
-                <div class="card-actions justify-end">
-                  <button class="btn btn-accent btn-sm">Action</button>
-                </div>
+
+            <%!-- Activity Feed (1/3 width) --%>
+            <div>
+              <.header>
+                Recent Activity
+              </.header>
+
+              <div class="mt-4 space-y-3">
+                <%= for activity <- sample_activities() do %>
+                  <div class="border-b border-base-300 pb-3 last:border-0">
+                    <dt class="font-semibold"><%= activity.user %></dt>
+                    <dd class="text-sm opacity-70">
+                      <%= activity.action %> <strong><%= activity.item %></strong>
+                      <div class="text-xs opacity-60 mt-1"><%= activity.time %></div>
+                    </dd>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Dividers</h3>
-          <div class="max-w-2xl">
-            <p>Content before divider</p>
-            <div class="divider">Text Divider</div>
-            <p>Content after divider</p>
-            <div class="divider"></div>
-            <p>Content after empty divider</p>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Loading Spinners</h3>
-          <div class="flex gap-4 flex-wrap items-center">
-            <span class="loading loading-spinner loading-xs"></span>
-            <span class="loading loading-spinner loading-sm"></span>
-            <span class="loading loading-spinner loading-md"></span>
-            <span class="loading loading-spinner loading-lg"></span>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-sm font-semibold mb-3">Progress Bars</h3>
-          <div class="space-y-3 max-w-2xl">
-            <progress class="progress w-full" value="0" max="100"></progress>
-            <progress class="progress progress-primary w-full" value="25" max="100"></progress>
-            <progress class="progress progress-secondary w-full" value="50" max="100"></progress>
-            <progress class="progress progress-accent w-full" value="75" max="100"></progress>
-            <progress class="progress progress-success w-full" value="100" max="100"></progress>
+
+          <%!-- New Task Form --%>
+          <div class="card bg-base-100 shadow-md">
+            <div class="card-body">
+              <h3 class="card-title">Create New Task</h3>
+
+              <.form for={@task_form} phx-submit="create_task" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <.input field={@task_form[:title]} type="text" label="Task Title" placeholder="Enter task title..." />
+                <.input
+                  field={@task_form[:assignee]}
+                  type="select"
+                  label="Assignee"
+                  options={[{"Alice", "alice"}, {"Bob", "bob"}, {"Carol", "carol"}, {"Dave", "dave"}]}
+                />
+                <.input
+                  field={@task_form[:priority]}
+                  type="select"
+                  label="Priority"
+                  options={[{"Low", "low"}, {"Medium", "medium"}, {"High", "high"}, {"Urgent", "urgent"}]}
+                />
+                <.input field={@task_form[:due_date]} type="date" label="Due Date" />
+
+                <div class="md:col-span-2">
+                  <.input
+                    field={@task_form[:description]}
+                    type="textarea"
+                    label="Description"
+                    placeholder="Describe the task..."
+                    rows="3"
+                  />
+                </div>
+
+                <div class="md:col-span-2 flex gap-2">
+                  <.button type="submit" class="btn-primary">Create Task</.button>
+                  <.button type="button" class="btn-ghost">Cancel</.button>
+                </div>
+              </.form>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-        </div>
-      <% end %>
     </main>
   </div>
 </Layouts.design>
