@@ -60,6 +60,13 @@ config :logger, :default_formatter,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Supabase configuration
+config :lunch_ninja, :supabase,
+  url: System.get_env("SUPABASE_URL") || "https://lcxnonpjokkpaocstzwc.supabase.co",
+  anon_key:
+    System.get_env("SUPABASE_ANON_KEY") ||
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxjeG5vbnBqb2trcGFvY3N0endjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4OTk5MzMsImV4cCI6MjA4MDQ3NTkzM30.TVoW4NSLM6ZVKSeJ-3It86jH2hwMS5cY0K2rE1nPVxw"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

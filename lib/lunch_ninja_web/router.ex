@@ -14,10 +14,29 @@ defmodule LunchNinjaWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :require_auth do
+    plug LunchNinjaWeb.Plugs.RequireAuth
+  end
+
   scope "/", LunchNinjaWeb do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    live "/sign-in", SignInLive
+    live "/contact-sales", ContactSalesLive
+
+    get "/auth/callback", AuthController, :callback
+    get "/sign-out", AuthController, :sign_out
+  end
+
+  scope "/", LunchNinjaWeb do
+    pipe_through [:browser, :require_auth]
+
+    live_session :authenticated,
+      on_mount: [{LunchNinjaWeb.Hooks.Auth, :ensure_authenticated}] do
+      live "/dashboard", DashboardLive
+    end
   end
 
   # Other scopes may use custom stacks.

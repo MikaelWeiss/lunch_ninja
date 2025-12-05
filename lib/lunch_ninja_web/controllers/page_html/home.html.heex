@@ -1,90 +1,135 @@
 <Layouts.flash_group flash={@flash} />
-<div class="flex justify-end px-4 pt-4 sm:px-6 lg:px-8 xl:px-28">
-  <Layouts.theme_toggle />
-</div>
-<div class="px-4 py-10 sm:px-6 sm:py-20 lg:px-8 xl:px-28 xl:py-24">
-  <div class="mx-auto max-w-2xl text-center">
-    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
-      🥷 Lunch Ninja
+
+<header class="flex items-center justify-between px-6 py-4 lg:px-12 xl:px-20">
+  <a href="/" class="flex items-center gap-2">
+    <span class="text-2xl">🥷</span>
+    <span class="text-xl font-bold tracking-tight">Lunch Ninja</span>
+  </a>
+  <nav class="flex items-center gap-4">
+    <Layouts.theme_toggle />
+    <a href={~p"/sign-in"} class="btn btn-ghost">Sign In</a>
+  </nav>
+</header>
+
+<main class="px-6 lg:px-12 xl:px-20">
+  <section class="mx-auto max-w-4xl pt-16 pb-20 text-center">
+    <h1 class="text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
+      <span class="block">Connect over lunch.</span>
+      <span class="block mt-2 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 bg-clip-text text-transparent">
+        Build community.
+      </span>
     </h1>
-    <p class="mt-6 text-lg leading-8 text-base-content/70">
-      Connect with fellow professors and students over lunch. Build relationships across campus, one meal at a time.
+    <p class="mx-auto mt-8 max-w-2xl text-xl text-base-content/70 leading-relaxed">
+      Randomly pair professors and students for lunch each week. Break down silos, foster mentorship, and build meaningful relationships across your campus.
     </p>
-  </div>
+    <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href={~p"/contact-sales"}
+        class="btn btn-primary btn-lg px-8 text-lg shadow-lg shadow-primary/25"
+      >
+        Get Started for Your School <.icon name="hero-arrow-right" class="size-5 ml-1" />
+      </a>
+      <a href={~p"/sign-in"} class="btn btn-ghost btn-lg text-lg">
+        Already have an account?
+      </a>
+    </div>
+  </section>
 
-  <div class="mx-auto mt-16 max-w-2xl">
-    <h2 class="text-2xl font-semibold mb-8 text-center">How It Works</h2>
+  <section class="mx-auto max-w-5xl py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
 
-    <div class="space-y-8">
-      <div class="flex gap-4">
-        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-content flex items-center justify-center font-bold">
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="relative p-8 rounded-2xl bg-base-200/50 border border-base-300">
+        <div class="absolute -top-4 left-8 w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white flex items-center justify-center font-bold shadow-lg">
           1
         </div>
-        <div>
-          <h3 class="font-semibold text-lg">Share Your Schedule</h3>
-          <p class="text-base-content/70">
-            Enter the days and times you're available for lunch this week.
-          </p>
-        </div>
+        <h3 class="font-bold text-xl mt-2 mb-3">Share Your Schedule</h3>
+        <p class="text-base-content/70 leading-relaxed">
+          Enter the days and times you're available for lunch this week. Quick and easy.
+        </p>
       </div>
 
-      <div class="flex gap-4">
-        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-content flex items-center justify-center font-bold">
+      <div class="relative p-8 rounded-2xl bg-base-200/50 border border-base-300">
+        <div class="absolute -top-4 left-8 w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-red-500 text-white flex items-center justify-center font-bold shadow-lg">
           2
         </div>
-        <div>
-          <h3 class="font-semibold text-lg">Get Matched</h3>
-          <p class="text-base-content/70">
-            Our ninja algorithm randomly pairs you with another professor or student who's free at the same time.
-          </p>
-        </div>
+        <h3 class="font-bold text-xl mt-2 mb-3">Get Matched</h3>
+        <p class="text-base-content/70 leading-relaxed">
+          Our algorithm pairs you with another person from your campus who's free at the same time.
+        </p>
       </div>
 
-      <div class="flex gap-4">
-        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-content flex items-center justify-center font-bold">
+      <div class="relative p-8 rounded-2xl bg-base-200/50 border border-base-300">
+        <div class="absolute -top-4 left-8 w-8 h-8 rounded-full bg-gradient-to-br from-red-400 to-rose-500 text-white flex items-center justify-center font-bold shadow-lg">
           3
         </div>
-        <div>
-          <h3 class="font-semibold text-lg">Meet &amp; Eat</h3>
-          <p class="text-base-content/70">
-            Grab lunch together and get to know someone new from your campus community.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mx-auto mt-16 max-w-2xl">
-    <h2 class="text-2xl font-semibold mb-6 text-center">Why Lunch Ninja?</h2>
-
-    <div class="grid gap-6 sm:grid-cols-2">
-      <div class="p-4 rounded-lg bg-base-200">
-        <h3 class="font-semibold mb-2">Break the Bubble</h3>
-        <p class="text-sm text-base-content/70">
-          Meet people outside your department or major that you'd never cross paths with otherwise.
-        </p>
-      </div>
-
-      <div class="p-4 rounded-lg bg-base-200">
-        <h3 class="font-semibold mb-2">No Awkward Planning</h3>
-        <p class="text-sm text-base-content/70">
-          Random matching takes the pressure off. Just show up and enjoy the conversation.
-        </p>
-      </div>
-
-      <div class="p-4 rounded-lg bg-base-200">
-        <h3 class="font-semibold mb-2">Build Community</h3>
-        <p class="text-sm text-base-content/70">
-          Strengthen connections across your campus one lunch at a time.
-        </p>
-      </div>
-
-      <div class="p-4 rounded-lg bg-base-200">
-        <h3 class="font-semibold mb-2">Flexible Scheduling</h3>
-        <p class="text-sm text-base-content/70">
-          Only available certain days? No problem. You control when you're matched.
+        <h3 class="font-bold text-xl mt-2 mb-3">Meet &amp; Connect</h3>
+        <p class="text-base-content/70 leading-relaxed">
+          Grab lunch together and discover new perspectives from across your campus community.
         </p>
       </div>
     </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">Built for Universities</h2>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="p-6 rounded-xl bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20">
+        <.icon name="hero-academic-cap" class="size-8 text-amber-500 mb-4" />
+        <h3 class="font-semibold text-lg mb-2">Cross-Department</h3>
+        <p class="text-sm text-base-content/70">
+          Connect people who'd never meet otherwise.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20">
+        <.icon name="hero-sparkles" class="size-8 text-orange-500 mb-4" />
+        <h3 class="font-semibold text-lg mb-2">Zero Pressure</h3>
+        <p class="text-sm text-base-content/70">
+          Random matching removes the awkwardness of asking.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-gradient-to-br from-red-500/10 to-rose-500/10 border border-red-500/20">
+        <.icon name="hero-user-group" class="size-8 text-red-500 mb-4" />
+        <h3 class="font-semibold text-lg mb-2">Build Culture</h3>
+        <p class="text-sm text-base-content/70">
+          Foster mentorship and collaboration organically.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-gradient-to-br from-rose-500/10 to-pink-500/10 border border-rose-500/20">
+        <.icon name="hero-calendar" class="size-8 text-rose-500 mb-4" />
+        <h3 class="font-semibold text-lg mb-2">Flexible</h3>
+        <p class="text-sm text-base-content/70">
+          Works with busy schedules. You control when you're available.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl py-20 text-center">
+    <h2 class="text-3xl font-bold mb-6">Ready to bring Lunch Ninja to your campus?</h2>
+    <p class="text-lg text-base-content/70 mb-8">
+      Get in touch with our team to set up Lunch Ninja for your university.
+    </p>
+    <a
+      href={~p"/contact-sales"}
+      class="btn btn-primary btn-lg px-10 text-lg shadow-lg shadow-primary/25"
+    >
+      Contact Sales <.icon name="hero-arrow-right" class="size-5 ml-1" />
+    </a>
+  </section>
+</main>
+
+<footer class="border-t border-base-300 px-6 py-8 lg:px-12 xl:px-20">
+  <div class="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-base-content/60">
+    <p>© 2024 Lunch Ninja. All rights reserved.</p>
+    <div class="flex items-center gap-6">
+      <a href="#" class="hover:text-base-content">Privacy</a>
+      <a href="#" class="hover:text-base-content">Terms</a>
+      <a href={~p"/contact-sales"} class="hover:text-base-content">Contact</a>
+    </div>
   </div>
-</div>
+</footer>
